@@ -20,8 +20,8 @@ class Home extends StatelessWidget {
                 overflow: Overflow.visible,
                 children: <Widget>[
                   Menu(),
-                  CardC(),
                   Tabs(),
+                  CardC(),
                 ],
               ),
             ),            

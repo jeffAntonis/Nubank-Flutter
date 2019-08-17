@@ -17,44 +17,83 @@ class Menu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(
-        left: 30,
-        right: 30,
-      ),
-      child: Column(
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: QrImage(
-              data: text,
-              size: 80,
-              foregroundColor: Colors.white70,
-              backgroundColor: Color(0xFF8B10AE),
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.only(
-              top: 30,
-            ),
-            decoration: BoxDecoration(
-              border: Border(
-                top: BorderSide(
-                  color: Color.fromRGBO(255, 255, 255, 0.8),
-                  width: 1,
+    return Positioned(
+      top: -10,
+      left: 0,
+      right: 0,
+      bottom: 100,
+      child: Container(
+        margin: EdgeInsets.only(
+          left: 30,
+          right: 30,
+        ),
+        child: ListView(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Center(
+                child: QrImage(
+                  data: text,
+                  size: 90,
+                  backgroundColor: Colors.white,
+                  foregroundColor: Color(0xFF8B10AE),
                 ),
               ),
             ),
-            child: Column(
-              children: <Widget>[
-                ItemWidget(item: Item(title: 'Me ajuda', codIcon: 59645)),
-                ItemWidget(item: Item(title: 'Perfil', codIcon: 59391)),
-                ItemWidget(item: Item(title: 'Configurar cartão', codIcon: 59504)),
-                ItemWidget(item: Item(title: 'Configurações do app', codIcon: 58156)),
-              ],
+            Container(
+              margin: EdgeInsets.only(
+                top: 30,
+              ),
+              decoration: BoxDecoration(
+                border: Border(
+                  top: BorderSide(
+                    color: Color.fromRGBO(255, 255, 255, 0.8),
+                    width: 1,
+                  ),
+                ),
+              ),
+              child: Column(
+                // mainAxisAlignment: MainAxisAlignment.center,
+                // crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  ItemWidget(item: Item(title: 'Me ajuda', codIcon: 59645)),
+                  ItemWidget(item: Item(title: 'Perfil', codIcon: 59391)),
+                  ItemWidget(
+                      item: Item(title: 'Configurar cartão', codIcon: 59504)),
+                  ItemWidget(
+                      item:
+                          Item(title: 'Configurações do app', codIcon: 58156)),
+
+                  //BUTTON
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                        top: 12,
+                        bottom: 12,
+                      ),
+                      child: OutlineButton(
+                        child: Text(
+                          'SAIR DO APP',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 13,
+                          ),
+                        ),
+                        onPressed: () {},
+                        borderSide: BorderSide(
+                          color: Color.fromRGBO(255, 255, 255, 0.8),
+                          width: 1,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
