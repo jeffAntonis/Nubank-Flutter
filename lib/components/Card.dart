@@ -5,7 +5,7 @@ class CardC extends StatefulWidget {
   _CardCState createState() => _CardCState();
 }
 
-class _CardCState extends State<CardC>{
+class _CardCState extends State<CardC> {
   double offset = 0.0;
 
   @override
@@ -14,29 +14,31 @@ class _CardCState extends State<CardC>{
       top: 0,
       right: 0,
       left: 0,
-      child: GestureDetector(
-        onVerticalDragStart: (DragStartDetails details){
-          setState(() {
-            offset = details.localPosition.dy;
-          });  
-        },
-        onVerticalDragUpdate: (DragUpdateDetails details){
-          setState(() {
-            offset = details.localPosition.dy;
-          });                
+      child: Transform.translate(
+        offset: Offset(0, offset),
+        child: GestureDetector(
+          onVerticalDragStart: (DragStartDetails details) {
+            setState(() {
+              offset = details.globalPosition.dy - (MediaQuery.of(context).size.height * 0.2);
+            });
+          },
+          onVerticalDragUpdate: (DragUpdateDetails details) {
+            var aux = details.globalPosition.dy - (MediaQuery.of(context).size.height * 0.2);
 
-          if(details.localPosition.dy >= 400){
             setState(() {
-              offset = 400;
-            }); 
-          } else if(details.localPosition.dy <= 12){
-            setState(() {
-              offset = 0;
-            });   
-          }
-        },
-        child: Transform.translate(
-          offset: Offset(0, offset),
+              offset = aux;
+            });
+
+            if (aux >= 400) {
+              setState(() {
+                offset = 400;
+              });
+            } else if (aux <= 12) {
+              setState(() {
+                offset = 0;
+              });
+            }
+          },
           child: Card(
             margin: EdgeInsets.only(
               left: 20,
