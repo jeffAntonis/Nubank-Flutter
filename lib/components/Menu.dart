@@ -48,7 +48,7 @@ class Menu extends StatelessWidget {
                 border: Border(
                   top: BorderSide(
                     color: Color.fromRGBO(255, 255, 255, 0.8),
-                    width: 1,
+                    width: 0.6,
                   ),
                 ),
               ),
@@ -84,7 +84,7 @@ class Menu extends StatelessWidget {
                         onPressed: () {},
                         borderSide: BorderSide(
                           color: Color.fromRGBO(255, 255, 255, 0.8),
-                          width: 1,
+                          width: 0.6,
                         ),
                       ),
                     ),
