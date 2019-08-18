@@ -7,6 +7,7 @@ class CardC extends StatefulWidget {
 
 class _CardCState extends State<CardC> {
   double offset = 0.0;
+  bool animated = false;
 
   @override
   Widget build(BuildContext context) {
@@ -17,28 +18,54 @@ class _CardCState extends State<CardC> {
       child: Transform.translate(
         offset: Offset(0, offset),
         child: GestureDetector(
-          onVerticalDragStart: (DragStartDetails details) {
-            setState(() {
-              offset = details.globalPosition.dy - (MediaQuery.of(context).size.height * 0.2);
-            });
-          },
-          onVerticalDragUpdate: (DragUpdateDetails details) {
-            var aux = details.globalPosition.dy - (MediaQuery.of(context).size.height * 0.2);
+          onPanUpdate: (DragUpdateDetails details){
+            if(animated) return;
 
-            setState(() {
-              offset = aux;
-            });
-
-            if (aux >= 400) {
-              setState(() {
-                offset = 400;
-              });
-            } else if (aux <= 12) {
+            if(offset == 0 && details.delta.dy <= 0.33){
               setState(() {
                 offset = 0;
               });
+              return;  
             }
+
+            var postition = details.globalPosition.dy;
+
+            setState(() {
+              offset = offset + details.delta.dy;
+            });
+
+            if (postition >= 580) {
+              setState(() {
+                offset = 400;
+              });
+            } else if (postition <= 170) {
+              setState(() {
+                offset = 0;
+              });
+            }  
           },
+          // onVerticalDragStart: (DragStartDetails details) {
+          //   setState(() {
+          //     offset = details.globalPosition.dy - (MediaQuery.of(context).size.height * 0.2);
+          //   });
+          // },
+          // onVerticalDragUpdate: (DragUpdateDetails details) {
+          //   var aux = details.globalPosition.dy - (MediaQuery.of(context).size.height * 0.2);
+
+          //   setState(() {
+          //     offset = aux;
+          //   });
+
+          //   if (aux >= 400) {
+          //     setState(() {
+          //       offset = 400;
+          //     });
+          //   } else if (aux <= 12) {
+          //     setState(() {
+          //       offset = 0;
+          //     });
+          //   }
+          // },
           child: Card(
             margin: EdgeInsets.only(
               left: 20,

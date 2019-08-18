@@ -14,33 +14,38 @@ class Header extends StatelessWidget {
         margin: EdgeInsets.only(
           bottom: 10,
         ),
-        child: Column(
-          children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Image.asset('lib/assets/Nubank_Logo.png'),
-                Container(
-                  margin: EdgeInsets.only(
-                    left: 8,
-                  ),
-                  child: Text(
-                    'Jefferson',
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                )
-              ],
-            ),
-            Icon(
-              IconData(58131, fontFamily: 'MaterialIcons'),
-              color: Colors.white,
-              size: 20,
-            ),
-          ],
+        child: InkWell(
+          onTap: () => print('Iae'),
+          child: Column(
+            children: <Widget>[
+              InkWell(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Image.asset('lib/assets/Nubank_Logo.png'),
+                    Container(
+                      margin: EdgeInsets.only(
+                        left: 8,
+                      ),
+                      child: Text(
+                        'Jefferson',
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              Icon(
+                IconData(58131, fontFamily: 'MaterialIcons'),
+                color: Colors.white,
+                size: 20,
+              ),
+            ],
+          ),
         ),
       ),
     );
