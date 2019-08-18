@@ -24,7 +24,7 @@ class Header extends StatelessWidget {
             child: InkWell(
               onTap: () {
                 StoreProvider.of<AppState>(context)
-                    .dispatch(action.Action(type: 'ANIMATED', payload: true));
+                    .dispatch(action.Action(type: 'ANIMATED', payload: !state.animated));
               },
               child: Column(
                 children: <Widget>[
