@@ -48,7 +48,7 @@ class Header extends StatelessWidget {
                     ],
                   ),
                   Icon(
-                    IconData(58131, fontFamily: 'MaterialIcons'),
+                    IconData((state.animated) ? 58134 : 58131, fontFamily: 'MaterialIcons'),
                     color: Colors.white,
                     size: 20,
                   ),

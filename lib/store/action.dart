@@ -1,6 +1,6 @@
 class Action {
   final String type;
-  final bool payload;
+  final dynamic payload;
 
   Action({this.type, this.payload});
 }
