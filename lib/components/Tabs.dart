@@ -29,7 +29,7 @@ class _TabsState extends State<Tabs> {
           left: 0,
           right: 0,
           child: AnimatedOpacity(
-            opacity: !state.animated ? 1.0 : 0.0,
+            opacity: !state.animated ? 1.0 : 0.4,
             duration: Duration(milliseconds: 300),
             child: Container(
               height: 100,

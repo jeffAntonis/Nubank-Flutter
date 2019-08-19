@@ -29,7 +29,7 @@ class Menu extends StatelessWidget {
           right: 0,
           bottom: 100,
           child: AnimatedOpacity(
-            opacity: state.animated ? 1.0 : 0.0,
+            opacity: state.animated ? 1.0 : 0.4,
             duration: Duration(milliseconds: 300),
             child: Container(
               margin: EdgeInsets.only(
