@@ -16,7 +16,7 @@ class ItemWidget extends StatelessWidget {
           border: Border(
             bottom: BorderSide(
               color: Color.fromRGBO(255, 255, 255, 0.8),
-              width: 1,
+              width: 0.6,
             ),
           ),          
         ),
