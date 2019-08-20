@@ -169,7 +169,7 @@ class _CardCState extends State<CardC> with SingleTickerProviderStateMixin {
                                   top: 3,
                                 ),
                                 child: Text(
-                                  'R\$ 197.611,65',
+                                  'R\$ 999.999,99',
                                   style: TextStyle(
                                     fontSize: 32,
                                     color: Color(0xFF333333),
